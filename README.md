@@ -4,11 +4,10 @@ This repo provides the code for reproducing the experiments in [*BANG*](https://
 In the paper, we propose a new pre-trained language model called BANG for sequence-to-sequence learning, 
 which considers autoregressive, non-autoregressive and semi-autoregressive generation as its pretraining tasks. 
 
-## NOTICE
-We will upgrade into BANG v2 soon, which focuses on better finetuning performance.  
-For now we only present BANG temporarily here for your reference, but later it will be replaced with a new version.
+
 ## Pretrained Models:  
-[BANG base](https://msraprophetnet.blob.core.windows.net/bang/checkpoint_base_9gram_ck35.pt)
+[BANG base](https://msraprophetnet.blob.core.windows.net/bang/checkpoint_base_9gram_ck35.pt)  
+Pretrained on 16GB English corpus, Wikipedia and BookCorpus.
 
 ## Dependency
 - pip install torch==1.3.0  
@@ -55,8 +54,8 @@ fairseq-preprocess \
 ```
 Fine tune with fairseq-train.  
 ### Autoregressive Generation 
-You can directly use [ProphetNet](https://github.com/microsoft/ProphetNet) for AR finetuning.  
-It is equivalent to this script:  
+You can directly use [ProphetNet](https://github.com/microsoft/ProphetNet) for AR finetuning. 
+Or you can also use this repo. They are equivalent. Set these parameters:    
 --disable-ngram-loss：please set True for AR finetuning    
 --ngram: please set 1 for AR finetuning  
 --nar-ratio: please set 0.0 for AR finetuning  
@@ -146,7 +145,7 @@ python post_processed_nar.py outputs_v1/sort_hypo${SUFFIX}.txt outputs/sort_hypo
 ## TIPS:
 1, Autoregressive needs fewer finetuning steps, while Non-autoregressive needs longtime finetuning to get good performance.  
 2, For AR finetuning, you can directly use the code in [ProphetNet](https://github.com/microsoft/ProphetNet).  
-3, We highly recommend you use sequence distillation before NAR finetuning.  
+3, **We highly recommend you use sequence distillation before NAR finetuning.**  
 4, If you met problems to run fairseq-preprocess, fairseq-train and other commands, or if you want to modify the workflow/inference pipeline, 
 it's a good choice to download fairseq git repo, checkout v0.9.0, and merge our codes. Then, modify their preprocess.py, train.py or generate.py, to run your new pipeline. 
 

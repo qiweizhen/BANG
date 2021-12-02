@@ -1,4 +1,6 @@
-#from fairseq.data import BertDictionary
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 
 from fairseq.tasks import register_task
 from fairseq.tasks.translation import TranslationTask

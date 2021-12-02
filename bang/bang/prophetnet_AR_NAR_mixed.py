@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 import math
 
 import torch
@@ -18,7 +21,7 @@ from fairseq.modules import (
 )
 from fairseq.modules.transformer_sentence_encoder import init_bert_params
 from .learned_positional_embedding import LearnedPositionalEmbedding
-from .ngram_multihead_attention_AR_NAR_mixsed import NgramMultiheadAttentionARNARMixed, ngram_attention_bias
+from .ngram_multihead_attention_AR_NAR_mixed import NgramMultiheadAttentionARNARMixed, ngram_attention_bias
 
 DEFAULT_MAX_SOURCE_POSITIONS = 512
 DEFAULT_MAX_TARGET_POSITIONS = 512

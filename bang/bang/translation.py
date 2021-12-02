@@ -1,4 +1,3 @@
-#from fairseq.data import BertDictionary
 
 from fairseq.tasks import register_task
 from fairseq.tasks.translation import TranslationTask
